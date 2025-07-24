@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パーソナルカラー診断 - あなたに似合う色を見つけよう✨</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✨ パーソナルカラー診断 ✨</h1>
+            <p class="subtitle">あなたに似合う色を見つけましょう</p>
+        </header>
+
+        <main>
+            <div id="welcome" class="content-section active">
+                <div class="welcome-message">
+                    <h2>こんにちは！</h2>
+                    <p>パーソナルカラー診断をするね✨<br>
+                    あなたに似合う色を診断するから、質問に答えてね👇</p>
+                    <button class="start-btn" onclick="startDiagnosis()">診断をはじめる</button>
+                </div>
+            </div>
+
+            <div id="question1" class="content-section">
+                <div class="question-container">
+                    <h3>1️⃣ 肌の色について</h3>
+                    <p>以下の中から一番近いものを選んでね！</p>
+                    <div class="options">
+                        <label class="option-label">
+                            <input type="radio" name="q1" value="a">
+                            <span class="option-text">[a] 明るく黄みがかった色味</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q1" value="b">
+                            <span class="option-text">[b] オリーブ系の深みのある色味</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q1" value="c">
+                            <span class="option-text">[c] ピンクがかった色味</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q1" value="d">
+                            <span class="option-text">[d] 血色感がある青白い色味</span>
+                        </label>
+                    </div>
+                    <button class="next-btn" onclick="nextQuestion(2)" disabled>次へ</button>
+                </div>
+            </div>
+
+            <div id="question2" class="content-section">
+                <div class="question-container">
+                    <h3>2️⃣ 瞳の色について</h3>
+                    <p>あなたの瞳の色は？</p>
+                    <div class="options">
+                        <label class="option-label">
+                            <input type="radio" name="q2" value="a">
+                            <span class="option-text">[a] 明るいブラウン</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q2" value="b">
+                            <span class="option-text">[b] 暗めのブラウン</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q2" value="c">
+                            <span class="option-text">[c] 黒に近いグレーがかった色味</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q2" value="d">
+                            <span class="option-text">[d] 白黒コントラストがはっきりしている</span>
+                        </label>
+                    </div>
+                    <button class="next-btn" onclick="nextQuestion(3)" disabled>次へ</button>
+                </div>
+            </div>
+
+            <div id="question3" class="content-section">
+                <div class="question-container">
+                    <h3>3️⃣ 唇の色について</h3>
+                    <p>一番近いものを選んでね！</p>
+                    <div class="options">
+                        <label class="option-label">
+                            <input type="radio" name="q3" value="a">
+                            <span class="option-text">[a] オレンジっぽいピンク</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q3" value="b">
+                            <span class="option-text">[b] 茶色を感じる深みのある赤</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q3" value="c">
+                            <span class="option-text">[c] 透明感のあるピンク</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q3" value="d">
+                            <span class="option-text">[d] 紫がかった赤</span>
+                        </label>
+                    </div>
+                    <button class="next-btn" onclick="showFirstResult()" disabled>診断結果を見る</button>
+                </div>
+            </div>
+
+            <div id="firstResult" class="content-section">
+                <div class="result-container">
+                    <h3>✨ 基本診断結果 ✨</h3>
+                    <div id="firstResultContent"></div>
+                    <button class="continue-btn" onclick="continueToQuestion4()">さらに詳しく診断する</button>
+                </div>
+            </div>
+
+            <div id="question4-1" class="content-section">
+                <div class="question-container">
+                    <h3>4️⃣-1 メイクカラーについて</h3>
+                    <p>普段使うメイクカラーはどちらが多い？</p>
+                    <div class="options">
+                        <label class="option-label">
+                            <input type="radio" name="q4-1" value="a">
+                            <span class="option-text">[a] ベージュゴールド系</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q4-1" value="b">
+                            <span class="option-text">[b] ネイビーグレー系</span>
+                        </label>
+                    </div>
+                    <button class="next-btn" onclick="nextQuestion('4-2')" disabled>次へ</button>
+                </div>
+            </div>
+
+            <div id="question4-2" class="content-section">
+                <div class="question-container">
+                    <h3>4️⃣-2 アクセサリーについて</h3>
+                    <p>どちらのアクセサリーがしっくりくる？</p>
+                    <div class="options">
+                        <label class="option-label">
+                            <input type="radio" name="q4-2" value="a">
+                            <span class="option-text">[a] ゴールド</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q4-2" value="b">
+                            <span class="option-text">[b] シルバー</span>
+                        </label>
+                    </div>
+                    <button class="next-btn" onclick="nextQuestion('4-3')" disabled>次へ</button>
+                </div>
+            </div>
+
+            <div id="question4-3" class="content-section">
+                <div class="question-container">
+                    <h3>4️⃣-3 服の色について</h3>
+                    <p>普段着る服の色はどちらが多い？</p>
+                    <div class="options">
+                        <label class="option-label">
+                            <input type="radio" name="q4-3" value="a">
+                            <span class="option-text">[a] ベージュ・茶・キャメル系</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q4-3" value="b">
+                            <span class="option-text">[b] 白・黒・グレー系</span>
+                        </label>
+                    </div>
+                    <button class="next-btn" onclick="showFinalResult()" disabled>最終診断結果を見る</button>
+                </div>
+            </div>
+
+            <div id="finalResult" class="content-section">
+                <div class="result-container">
+                    <h3>🎉 最終診断結果 🎉</h3>
+                    <div id="finalResultContent"></div>
+                    <button class="restart-btn" onclick="restartDiagnosis()">もう一度診断する</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2024 パーソナルカラー診断</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
